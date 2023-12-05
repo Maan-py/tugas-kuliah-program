@@ -5,15 +5,16 @@ using namespace std;
 int b = 1;
 void UAS(int a, int *c);
 
-int main()
-{
+int main() {
   // NOMOR 1
 
   // int n = 2;
 
-  // for(int p = 1; p <= n; p++) {
+  // for (int p = 1; p <= n; p++)
+  // {
   //   cout << p << " ";
-  //   for (int q = p; q <= n; q++) {
+  //   for (int q = p; q <= n; q++)
+  //   {
   //     cout << q << " ";
   //   }
   //   cout << n << endl;
@@ -45,25 +46,24 @@ int main()
   //   }
   // }
 
-  // NOMOR 4
+  // NOMOR 4 - 7
 
   int a, c;
   a = 3;
   b = 1;
   c = 2;
-  cout << a << " " << b << " " << c << "\n";
+  cout << a << " " << b << " " << c << "\n"; // NOMOR 4
   UAS(a, &c);
-  cout << a << " " << b << " " << c << "\n";
+  cout << a << " " << b << " " << c << "\n"; // NOMOR 5
   a = 2;
   b = 4;
   c = 3;
-  cout << a << " " << b << " " << c << "\n";
+  cout << a << " " << b << " " << c << "\n"; // NOMOR 6
   UAS(c, &a);
-  cout << a << " " << b << " " << c << "\n";
+  cout << a << " " << b << " " << c << "\n"; // NOMOR 7
 }
 
-void UAS(int a, int *c)
-{
+void UAS(int a, int *c) {
   a = b + *c;
   *c = 10 + b;
   b = 5 - *c;
