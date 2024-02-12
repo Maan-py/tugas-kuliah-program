@@ -2,9 +2,10 @@
 using namespace std;
 
 char ulang;
-int a, b, c, d;
 
-void hitungPerkalianMatriks(int a, int b, int c, int d) {
+
+void hitungPerkalianMatriks() {
+    int a, b, c, d;
     cout << "Perkalian 2 matriks (M * N)\n";
     cout << endl;
 
@@ -101,7 +102,7 @@ int main() {
         cout << "Perkalian Matriks" << endl;
         cout << endl;
 
-        hitungPerkalianMatriks(a, b, c, d);
+        hitungPerkalianMatriks();
 
         cout << endl;
 
