@@ -4,9 +4,9 @@ using namespace std;
 
 void nomorSatu(int j, int *S);
 void nomorDua(int j, int *S);
-void nomorTiga();
-void nomorEmpat();
-void nomorLima();
+void nomorTiga(int j);
+void nomorEmpat(int j);
+void nomorLima(int j);
 
 int main()
 {
@@ -22,15 +22,15 @@ int main()
   nomorDua(j, &S);
   cout << "\nJumlah S = " << S << endl;
 
-  nomorTiga();
+  nomorTiga(j);
 
   cout << endl;
 
-  nomorEmpat();
+  nomorEmpat(j);
 
   cout << endl;
 
-  nomorLima();
+  nomorLima(j);
 }
 
 void nomorSatu(int j, int *S)
@@ -38,6 +38,7 @@ void nomorSatu(int j, int *S)
   int i = 1;
   *S = 0;
 
+  cout << "Nomor 1" << endl;
   cout << "S = ";
 
   while (i <= j)
@@ -64,6 +65,7 @@ void nomorDua(int j, int *S)
   int i = 1;
   *S = 0;
 
+  cout << "Nomor 2" << endl;
   cout << "S = ";
 
   while (i <= j)
@@ -77,15 +79,16 @@ void nomorDua(int j, int *S)
   }
 }
 
-void nomorTiga()
+void nomorTiga(int j)
 {
   int i = 1;
   double F;
   F = 0.0;
 
+  cout << "Nomor 3" << endl;
   cout << "S = ";
 
-  while (i <= 6)
+  while (i <= j)
   {
     if (i == 1)
     {
@@ -113,7 +116,7 @@ void nomorTiga()
   cout << "S = " << F;
 }
 
-void nomorEmpat()
+void nomorEmpat(int j)
 {
 
   int i = 1;
@@ -123,7 +126,7 @@ void nomorEmpat()
   cout << "Nomor 4" << endl;
   cout << "S = ";
 
-  while (i <= 8)
+  while (i <= j)
   {
     if (i % 4 == 0)
     {
@@ -143,27 +146,29 @@ void nomorEmpat()
   cout << "Jumlah S = " << F;
 }
 
-void nomorLima()
+void nomorLima(int j)
 {
   int i = 1;
+  int ulang = 1;
   double F;
   F = 0.0;
 
   cout << "Nomor 5" << endl;
   cout << "S = ";
 
-  while (i <= 4)
+  while (i <= j)
   {
     if (i % 3 == 0)
     {
-      cout << "-" << i * 2 << "/" << i * 3 << ", ";
-      F -= 1.0 / i;
+      cout << "-" << pow(2, i) << "/" << pow(3, i) << ", ";
+      F -= pow(2, i) / pow(3, i);
     }
     else
     {
-      cout << i * 2 << "/" << i * 3 << ", ";
-      F += 1.0 / i;
+      cout << pow(2, i) << "/" << pow(3, i) << ", ";
+      F += pow(2, i) / pow(3, i);
     }
+    ulang++;
     i++;
   }
 
