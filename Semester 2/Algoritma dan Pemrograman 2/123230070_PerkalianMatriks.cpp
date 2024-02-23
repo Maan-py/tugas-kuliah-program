@@ -57,6 +57,9 @@ void perkalianMatriks() {
       }
     }
 
+    //[1 2]  [4 3]
+    //[3 4]  [2 1]
+
     cout << endl;
 
     cout << "Hasil Perkalian Matriks M dan N" << endl;
