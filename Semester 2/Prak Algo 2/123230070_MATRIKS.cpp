@@ -67,8 +67,8 @@ int main() {
     for(int i = 0; i < barisA; i++) {
       for(int j = 0; j < kolomB; j++) {
         int hasil = 0;
-        for(int k = 0; k < barisB; k++) {
-          hasil += matriksA[i][k] * matriksB[k][j];
+        for(int k = 0; k < barisB; k++) { // 3
+          hasil += matriksA[i][k] * matriksB[k][j]; // 1 * 6 2 * 4 3 * 2
         }
         cout << hasil << " ";
       } 
