@@ -2,38 +2,38 @@
 using namespace std;
 
 int main() {
-  int barisA, kolomA, barisB, kolomB;
+  int barisA, kolomA, barisB, kolomB; // inisialisasi variabel baris dan kolom masing-masing matriks
 
-  cout << "Masukkan jumlah baris matriks A : ";
+  cout << "Masukkan jumlah baris matriks A : "; // input baris matriks A
   cin >> barisA;
 
-  cout << "Masukkan jumlah kolom matriks A : ";
+  cout << "Masukkan jumlah kolom matriks A : "; // input kolom matriks A
   cin >> kolomA;
 
   int matriksA[barisA][kolomA];
 
   cout << endl;
 
-  cout << "Masukkan jumlah baris matriks B : ";
+  cout << "Masukkan jumlah baris matriks B : "; // input baris matriks B
   cin >> barisB;
 
-  cout << "Masukkan jumlah kolom matriks B : ";
+  cout << "Masukkan jumlah kolom matriks B : "; // input kolom matriks B
   cin >> kolomB;
 
   int matriksB[barisB][kolomB];
 
   cout << endl;
 
-  if(barisA == kolomB) {
-    cout << "Masukkan angka untuk matriks A : " << endl;
-    for(int i = 0; i < barisA; i++) {
-      for(int j = 0; j < kolomA; j++) {
+  if(barisA == kolomB) { // error handling perkalian matriks hanya bisa dilakukan jika kolom matriks A sama dengan baris matriks B
+    cout << "Masukkan angka untuk matriks A : " << endl; // input angka matriks A
+    for(int i = 0; i < barisA; i++) { // perulangan untuk baris matriks A
+      for(int j = 0; j < kolomA; j++) { // perulangan untuk kolom matriks A
         cout << "Angka " << "[" << i<< "]" << "[" << j<< "] : ";
-        cin >> matriksA[i][j];
+        cin >> matriksA[i][j]; 
       }
     }
 
-    cout << "\nMasukkan angka untuk matriks B : " << endl;
+    cout << "\nMasukkan angka untuk matriks B : " << endl; // input angka matriks B
     for(int i = 0; i < barisB; i++) {
       for(int j = 0; j < kolomB; j++) {
         cout << "Angka " << "[" << i<< "]" << "[" << j<< "] : ";
@@ -41,11 +41,11 @@ int main() {
       }
     }
 
-    cout << "\nAngka Matriks A : " << endl;
+    cout << "\nAngka Matriks A : " << endl; 
 
     for(int i = 0; i < barisA; i++) {
       for(int j = 0; j < kolomA; j++) {
-        cout << matriksA[i][j] << " ";
+        cout << matriksA[i][j] << " "; // menampilkan kembali angka matriks A yang sudah diinputkan
       } 
       cout << endl;
     }
@@ -54,27 +54,23 @@ int main() {
 
     for(int i = 0; i < barisB; i++) {
       for(int j = 0; j < kolomB; j++) {
-        cout << matriksB[i][j] << " ";
-      } 
+        cout << matriksB[i][j] << " "; // menampilkan kembali angka matriks B yang sudah diinputkan
+      }
       cout << endl;
     }
 
-    //[1 2 3] [6 5]
-    //[4 5 6] [4 3]
-    //        [2 1]
-
-    cout << "\nHasil perkalian dari kedua matriks tersebut adalah : " << endl;
+    cout << "\nHasil perkalian dari kedua matriks tersebut adalah : " << endl; 
     for(int i = 0; i < barisA; i++) {
       for(int j = 0; j < kolomB; j++) {
         int hasil = 0;
-        for(int k = 0; k < barisB; k++) { // 3
-          hasil += matriksA[i][k] * matriksB[k][j]; // 1 * 6 2 * 4 3 * 2
+        for(int k = 0; k < barisB; k++) { 
+          hasil += matriksA[i][k] * matriksB[k][j]; 
         }
-        cout << hasil << " ";
+        cout << hasil << " "; // menampilkan hasil perkalian matriks
       } 
       cout << endl;
     }
   } else {
-    cout << "Perkalian matriks tidak mungkin dilakukan.";
+    cout << "Perkalian matriks tidak mungkin dilakukan."; // error handling jika kolom matriks A tidak sama dengan baris matriks B
   }
 }
