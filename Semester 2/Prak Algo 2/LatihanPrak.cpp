@@ -1,33 +1,33 @@
 #include <iostream>
 using namespace std;
 
-int angka, pangkat;
-int perpangkatan(int angka, int pangkat);
+int n;
+int deret(int n);
 
 int main()
 {
-  cout << "Masukkan angka : ";
-  cin >> angka;
+  cout << "Masukkan deret ke : ";
+  cin >> n;
 
-  cout << "Masukkan pangkat : ";
-  cin >> pangkat;
-  
-  cout << perpangkatan(angka, pangkat);
+  cout << "Hasil : " << deret(n) << endl;
+  // cout << "Masukkan pangkat : ";
+  // cin >> pangkat;
+
+  // cout << perpangkatan(angka, pangkat);
+  // cout << deret(n);
+  cout << "deret"
+       << " : ";
+  for (int i = 1; i <= n; i++)
+  {
+    cout << i * 2 << " ";
+  }
 }
 
-int perpangkatan(int angka, int n)
-{
-  if (n == 1)
+int deret(int n) {
+  if (n == 1) {
+    return 2;
+  } else
   {
-    return angka;
-  }
-
-  if (n == 0)
-  {
-    return 1;
-  }
-  else
-  {
-    return angka * perpangkatan(angka, n - 1);
+    return deret(n - 1) + 2;
   }
 }
