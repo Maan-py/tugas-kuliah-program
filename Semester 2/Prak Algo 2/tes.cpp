@@ -25,7 +25,7 @@ int main()
   do
   {
     cout << "\nMenu:" << endl;
-    cout << "1. Input data" << endl;
+    cout << "1. Input data" << endl;  
     cout << "2. Tampilkan data" << endl;
     cout << "3. Keluar program" << endl;
     cout << "Pilihan Anda: ";
