@@ -4,8 +4,7 @@ using namespace std;
 int pilihan, banyakData;
 char ulangi;
 
-int main()
-{
+int main() {
   system("cls");
 
   cout << "Masukkan banyak data : ";
@@ -13,87 +12,75 @@ int main()
 
   int data[banyakData];
 
-  int dataLength = (sizeof(data) / sizeof(*(data)));
+  // int dataLength = (sizeof(data) / sizeof(*(data)));
 
   // sequential
-  int i, x;
+  int cari;
   bool found;
+  int i;
 
   // binary
-  int cari, awal = 0, akhir, tengah;
-  akhir = dataLength;
-  do
-  {
+  int awal, akhir, tengah;
+
+  do {
     cout << "1. Input data" << endl;
     cout << "2. Cari data" << endl;
     cout << "3. Tampil data" << endl;
     cout << "Pilih Menu : ";
     cin >> pilihan;
 
-    switch (pilihan)
-    {
+    switch (pilihan) {
     case 1:
-      for (int i = 0; i < banyakData; i++)
-      {
+      system("cls");
+      for (int i = 0; i < banyakData; i++) {
         cout << "Masukkan data ke-" << i << " : ";
         cin >> data[i];
       }
 
       break;
     case 2:
+      system("cls");
       cout << "Pilih metode searching yang ingin digunakan : " << endl;
       cout << "1. Sequential Search" << endl;
-      cout << "2. Binary Search" << endl; // Tambahkan endl untuk pemisah
+      cout << "2. Binary Search" << endl;
       cout << "Pilih : ";
       cin >> pilihan;
 
-      switch (pilihan)
-      {
+      switch (pilihan) {
       case 1:
-        cout << "Masukkan nilai yang dicari : ";
-        cin >> x;
+        system("cls");
+        for (int i = 0; i < banyakData; i++) {
+          cout << "Data ke-" << i << " : " << data[i] << endl;
+        }
 
-        i = 0;
+        // sequential search
+        cout << "Masukkan nilai yang ingin dicari : ";
+        cin >> cari;
+
         found = false;
+        i = 0;
 
-        data[dataLength - 1] = x; // sentinel
-
-        while ((i <= 10) && (!found) && (data[i] <= x))
-        {
-          if (data[i] == x)
-          {
+        while (i < banyakData && !found) {
+          if (data[i] == cari) {
             found = true;
-          }
-          else
-          {
+          } else {
             i++;
           }
         }
 
-        if (i < banyakData && (found))
-        {
-          cout << x << " ditemukan pada array index ke : " << i << endl;
+        if (found) {
+          cout << "Data ditemukan pada index ke- " << i << endl;
+        } else {
+          cout << "Data tidak ditemukan" << endl;
         }
-        else
-        {
-          cout << x << " tidak ada pada array" << endl;
-        }
-
-        cout << " " << endl;
-
         break;
       case 2:
-
-        cout << "Masukkan nilai yang ingin dicari : ";
-        cin >> cari;
-
+        system("cls");
+        // urutkan data
         cout << "Data setelah diurutkan" << endl;
-        for (int i = 0; i < banyakData; i++)
-        {
-          for (int j = i + 1; j < banyakData; j++)
-          {
-            if (data[i] > data[j])
-            {
+        for (int i = 0; i < banyakData; i++) {
+          for (int j = i + 1; j < banyakData; j++) {
+            if (data[i] > data[j]) {
               int temp = data[i];
               data[i] = data[j];
               data[j] = temp;
@@ -101,50 +88,58 @@ int main()
           }
         }
 
-
-        for (int i = 0; i < banyakData; i++)
-        {
-          cout << "Data ke-" << i << data[i] << endl;
+        for (int i = 0; i < banyakData; i++) {
+          cout << "Data ke-" << i << " : " << data[i] << endl;
         }
 
         cout << endl;
 
-        while (awal <= akhir)
-        {
+        // binary search
+        awal = 0;
+        akhir = banyakData;
+        found = false;
+
+        cout << "Masukkan nilai yang ingin dicari : ";
+        cin >> cari;
+
+        while (!found && awal <= akhir) {
           tengah = (awal + akhir) / 2;
-          if (data[tengah] == cari)
-          {
-            cout << cari << " ditemukan pada array index ke : " << tengah << endl;
-            break;
-          }
-          else if (data[tengah] < cari)
-          {
-            awal = tengah + 1;
-          }
-          else
-          {
-            akhir = tengah - 1;
+          if (cari == data[tengah]) {
+            found = true;
+          } else {
+            if (cari < data[tengah]) {
+              akhir = tengah - 1;
+            } else {
+              awal = tengah + 1;
+            }
           }
         }
 
-        if (awal > akhir)
-        {
-          cout << cari << " tidak ada pada array" << endl;
+        if (found) {
+          cout << "Data ditemukan pada index ke- " << tengah << endl;
+        } else {
+          cout << "Data tidak ditemukan" << endl;
         }
 
-
-
-
-
+        // bmengembalikan data ke semula
+        for (int i = 0; i < banyakData; i++) {
+          for (int j = i + 1; j < banyakData; j++) {
+            if (data[i] < data[j]) {
+              int temp = data[i];
+              data[i] = data[j];
+              data[j] = temp;
+            }
+          }
+        }
         break;
       default:
+        cout << "Masukkan menu yang sesuai";
         break;
       }
       break;
     case 3:
-
-      for (int i = 0; i < banyakData; i++)
-      {
+      system("cls");
+      for (int i = 0; i < banyakData; i++) {
         cout << "Data ke-" << i << " : " << data[i] << endl;
       }
       break;

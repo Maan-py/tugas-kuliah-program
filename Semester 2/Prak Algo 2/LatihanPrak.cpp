@@ -104,7 +104,7 @@
 using namespace std;
 
 int main() {
-  int nilai[10] = {12, 13, 15, 17, 18, 20, 22, 24, 40, 60};
+  int nilai[10] = {12, 15, 15, 17, 18, 20, 22, 24, 40, 60};
   int cari, awal = 0, akhir, tengah;
   bool found = false;
   akhir = 10;
