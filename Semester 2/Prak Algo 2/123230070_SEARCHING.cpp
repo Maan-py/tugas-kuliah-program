@@ -7,10 +7,8 @@ char ulangi;
 int main() {
   system("cls");
 
-  cout << "Masukkan banyak data : "; // Meminta input dari user untuk banyak angka
-  cin >> banyakData;
-
-  int data[banyakData]; // deklarasi array dengan jumlah data yang diinputkan
+  int data[100];
+  // int data[banyakData]; // deklarasi array dengan jumlah data yang diinputkan
 
   // int dataLength = (sizeof(data) / sizeof(*(data)));
 
@@ -38,6 +36,9 @@ int main() {
       system("cls");
 
       cout << "Menu input data\n" << endl;
+
+      cout << "Masukkan banyak data : "; // Meminta input dari user untuk banyak angka
+      cin >> banyakData;
 
       // perulangan untuk memasukkan data
       for (int i = 0; i < banyakData; i++) {
