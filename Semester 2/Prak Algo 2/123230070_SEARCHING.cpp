@@ -7,10 +7,10 @@ char ulangi;
 int main() {
   system("cls");
 
-  cout << "Masukkan banyak data : ";
+  cout << "Masukkan banyak data : "; // Meminta input dari user untuk banyak angka
   cin >> banyakData;
 
-  int data[banyakData];
+  int data[banyakData]; // deklarasi array dengan jumlah data yang diinputkan
 
   // int dataLength = (sizeof(data) / sizeof(*(data)));
 
@@ -23,15 +23,23 @@ int main() {
   int awal, akhir, tengah;
 
   do {
+    // menu utama
     cout << "1. Input data" << endl;
     cout << "2. Cari data" << endl;
     cout << "3. Tampil data" << endl;
     cout << "Pilih Menu : ";
     cin >> pilihan;
 
+    system("cls");
+    
     switch (pilihan) {
+    // menu 1
     case 1:
       system("cls");
+
+      cout << "Menu input data\n" << endl;
+
+      // perulangan untuk memasukkan data
       for (int i = 0; i < banyakData; i++) {
         cout << "Masukkan data ke-" << i << " : ";
         cin >> data[i];
@@ -39,7 +47,10 @@ int main() {
 
       break;
     case 2:
+      // menu 2
       system("cls");
+      cout << "Menu cari data\n" << endl;
+      // menu untuk memilih metode searching
       cout << "Pilih metode searching yang ingin digunakan : " << endl;
       cout << "1. Sequential Search" << endl;
       cout << "2. Binary Search" << endl;
@@ -49,6 +60,8 @@ int main() {
       switch (pilihan) {
       case 1:
         system("cls");
+        cout << "Mencari data dengan sequential search\n" << endl;
+        // menampilkan data
         for (int i = 0; i < banyakData; i++) {
           cout << "Data ke-" << i << " : " << data[i] << endl;
         }
@@ -76,6 +89,7 @@ int main() {
         break;
       case 2:
         system("cls");
+        cout << "Mencari data dengan binary search\n" << endl;
         // urutkan data
         cout << "Data setelah diurutkan" << endl;
         for (int i = 0; i < banyakData; i++) {
@@ -88,11 +102,10 @@ int main() {
           }
         }
 
+        // menampilkan data setelah diurutkan
         for (int i = 0; i < banyakData; i++) {
           cout << "Data ke-" << i << " : " << data[i] << endl;
         }
-
-        cout << endl;
 
         // binary search
         awal = 0;
@@ -121,7 +134,7 @@ int main() {
           cout << "Data tidak ditemukan" << endl;
         }
 
-        // bmengembalikan data ke semula
+        // mengembalikan data ke semula
         for (int i = 0; i < banyakData; i++) {
           for (int j = i + 1; j < banyakData; j++) {
             if (data[i] < data[j]) {
@@ -139,6 +152,9 @@ int main() {
       break;
     case 3:
       system("cls");
+      cout << "Menu tampil data\n" << endl;
+      // menampilkan data
+      cout << "Data yang anda inputkan" << endl;
       for (int i = 0; i < banyakData; i++) {
         cout << "Data ke-" << i << " : " << data[i] << endl;
       }
@@ -151,3 +167,4 @@ int main() {
     cin >> ulangi;
   } while (ulangi == 'Y' || ulangi == 'y');
 }
+
