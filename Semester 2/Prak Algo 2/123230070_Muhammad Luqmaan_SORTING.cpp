@@ -326,43 +326,43 @@ void shellSort(int angka[], int jumlahAngka) {
 }
 
 void quickSort(int angka[], int first, int last) {
-  int temp, low, high, list_separator;
-  low = first;
-  high = last;
-  list_separator = angka[(first + last) / 2];
+    int temp, low, high, list_separator;
+    low = first;
+    high = last;
+    list_separator = angka[(first + last) / 2];
 
-  do {
-      if (urutan == 1) {
-        while (angka[low] < list_separator)
-          low++;
-        while (angka[high] > list_separator)
-          high--;
-        // menampilkan perubahan data
-        cout << endl;
-        for (int k = 0; k < jumlahAngka; k++) {
-          cout << angka[k] << " ";
+    do {
+        if (urutan == 1) {
+          while (angka[low] < list_separator)
+            low++;
+          while (angka[high] > list_separator)
+            high--;
+          // menampilkan perubahan data
+          cout << endl;
+          for (int k = 0; k < jumlahAngka; k++) {
+            cout << angka[k] << " ";
+          }
+        } else if (urutan == 2) {
+          while (angka[low] > list_separator)
+            low++;
+          while (angka[high] < list_separator)
+            high--;
+          // menampilkan perubahan data
+          cout << endl;
+          for (int k = 0; k < jumlahAngka; k++) {
+            cout << angka[k] << " ";
+          }
         }
-      } else if (urutan == 2) {
-        while (angka[low] > list_separator)
-          low++;
-        while (angka[high] < list_separator)
-          high--;
-        // menampilkan perubahan data
-        cout << endl;
-        for (int k = 0; k < jumlahAngka; k++) {
-          cout << angka[k] << " ";
-        }
+
+      if (low <= high) {
+        temp = angka[low];
+        angka[low++] = angka[high];
+        angka[high--] = temp;
       }
 
-    if (low <= high) {
-      temp = angka[low];
-      angka[low++] = angka[high];
-      angka[high--] = temp;
-    }
-
-  } while (low <= high);
-  if (first < high)
-    quickSort(angka, first, high);
-  if (low < last)
-    quickSort(angka, low, last);
-}
+    } while (low <= high);
+    if (first < high)
+      quickSort(angka, first, high);
+    if (low < last)
+      quickSort(angka, low, last);
+  }
