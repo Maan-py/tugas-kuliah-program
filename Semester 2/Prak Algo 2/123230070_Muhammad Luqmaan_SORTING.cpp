@@ -1,7 +1,9 @@
 #include <iostream>
 #include <stdlib.h>
+#include <time.h>
 using namespace std;
 
+// deklarasi variabel
 int pilih, urutan, sorting, jumlahAngka = 0;
 int angka[100];
 int first = 0;
@@ -9,11 +11,13 @@ int last = 0;
 char ulang;
 bool sorted = false;
 
+// deklarasi method menu
 void menuInput();
 void menuSorting();
 void menuOutput();
 void menuPengurutan();
 
+// deklarasi method sorting
 void bubbleSort(int angka[], int jumlahAngka);
 void insertionSort(int angka[], int jumlahAngka);
 void selectionSort(int angka[], int jumlahAngka);
@@ -21,7 +25,9 @@ void shellSort(int angka[], int jumlahAngka);
 void quickSort(int angka[], int first, int last);
 
 int main() {
+  // perulangan menu utama
   do {
+    // menu utama
     system("cls");
     cout << "Menu utama" << endl;
     cout << "1. Input jumlah data" << endl;
@@ -29,28 +35,30 @@ int main() {
     cout << "3. Output data" << endl;
     cout << "4. Keluar" << endl;
 
-    cout << "\nPilih menu : ";
+    cout << "\nPilih menu : "; // pilih menu
     cin >> pilih;
 
     switch (pilih) {
     case 1:
-      menuInput();
+      menuInput(); // menu user menginputkan jumlah angka
       break;
     case 2:
-      menuSorting();
+      menuSorting(); // menu user memilih metode sort
       break;
     case 3:
-      menuOutput();
+      menuOutput(); // menu user melihat hasil sort
       break;
     case 4:
+    // menu exit
       cout << "\nTerima Kasih!" << endl;
       return ulang = 'n';
       break;
     default:
+    // jika pilihan menu tidak tersedia
       cout << "Masukkan menu yang sesuai!" << endl;
       break;
     }
-    cout << "\nKembali ke menu? (y/n) ";
+    cout << "\nKembali ke menu? (y/n) "; // konfirmasi pengulangan menu
     cin >> ulang;
   } while (ulang == 'Y' || ulang == 'y');
 }
@@ -63,6 +71,7 @@ void menuInput() {
 
   srand(time(NULL)); // biar tidak selalu return angka yang sama
 
+  // generate data secara random
   for (int i = 0; i < jumlahAngka; i++) {
     angka[i] = rand() % 100 + 1;
   }
@@ -71,11 +80,13 @@ void menuInput() {
 void menuSorting() {
     system("cls");
     
+    // kalau data tersortir, maka tidak bisa input data baru
     if(sorted) {
       cout << "Data sudah pernah di-sort sebelummnya. Sebaiknya, keluar dari program dahulu, lalu input jumlah data baru.\n"
            << endl;
     }
 
+    // method sort
     cout << "1. Bubble Sort" << endl;
     cout << "2. Insertion Sort" << endl;
     cout << "3. Selection Sort" << endl;
@@ -90,8 +101,9 @@ void menuSorting() {
 void menuOutput() {
   system("cls");
   cout << "Banyaknya data "
-       << " : " << jumlahAngka << endl;
+       << " : " << jumlahAngka << endl; // input jumlah angka
 
+  // menampilkan data yang belum disort
   cout << "\nData yang belum di-sorting : " << endl;
   for (int i = 0; i < jumlahAngka; i++) {
     cout << angka[i] << " ";
@@ -99,6 +111,7 @@ void menuOutput() {
 
   cout << endl;
 
+  // user memilih metode sort
   switch (sorting) {
   case 1:
     sorted = true;
@@ -132,6 +145,7 @@ void menuOutput() {
     break;
   }
 
+  // menampilkan data yang sudah disort
   if (sorting && urutan) {
     cout << "\n\nData yang sudah di-sorting : " << endl;
     for (int i = 0; i < jumlahAngka; i++) {

@@ -3,6 +3,8 @@ using namespace std;
 
 int jumlah, pilihan;
 char ulangi;
+
+bool dataAda = false;
 typedef struct {
   string nama;
   string merek;
@@ -19,7 +21,7 @@ int main() {
   cin >> jumlah;
 
   data_barang barang[jumlah]; // deklarasi array barang dengan struct
-  do { // perulangan menu
+  do {                        // perulangan menu
     cout << "Pilih menu : " << endl;
     cout << "1. Input data" << endl;
     cout << "2. Tampilkan data" << endl;
@@ -32,6 +34,7 @@ int main() {
 
     switch (pilihan) {
     case 1: // menu 1
+      dataAda = true;
       if (j < jumlah) { // jika jumlah maksimal barang belum terpenuhi
         cout << "Masukkan barang ke-" << j + 1 << endl;
 
@@ -41,10 +44,12 @@ int main() {
         cout << "Masukkan nama barang : "; // input nama barang
         getline(cin, barang[j].nama);
 
-        cout << "Masukkan merek " << barang[j].nama << " : "; // input merek barang
+        cout << "Masukkan merek " << barang[j].nama
+             << " : "; // input merek barang
         getline(cin, barang[j].merek);
 
-        cout << "Masukkan jumlah stok " << barang[j].nama << " : "; // input jumlah stok
+        cout << "Masukkan jumlah stok " << barang[j].nama
+             << " : "; // input jumlah stok
         cin >> barang[j].jumlah;
 
         cin.ignore();
@@ -57,31 +62,39 @@ int main() {
       j++; // variabel j terus bertambah setelah input barang
       break;
     case 2:
-      // system("cls");
-      cout << "Berikut adalah data-data barang yang sudah diinputkan : "
-           << endl;
-      cout << endl;
-      for (int i = 0; i < j; i++) { // perulangan untuk menampilkan data barang
-
-        cout << "Data barang ke-" << i + 1 << endl;
-
-        cout << "\nNama barang : " << barang[i].nama << endl;
-
-        cout << "Merek " << barang[i].nama << "  : " << barang[i].merek << endl;
-
-        cout << "Jumlah " << barang[i].nama << " : " << barang[i].jumlah
+      if (dataAda) {
+        // system("cls");
+        cout << "Berikut adalah data-data barang yang sudah diinputkan : "
              << endl;
-
-        cout << "Harga " << barang[i].nama << "  : " << barang[i].harga << endl;
-
         cout << endl;
+        for (int i = 0; i < j;
+             i++) { // perulangan untuk menampilkan data barang
+
+          cout << "Data barang ke-" << i + 1 << endl;
+
+          cout << "\nNama barang : " << barang[i].nama << endl;
+
+          cout << "Merek " << barang[i].nama << "  : " << barang[i].merek
+               << endl;
+
+          cout << "Jumlah " << barang[i].nama << " : " << barang[i].jumlah
+               << endl;
+
+          cout << "Harga " << barang[i].nama << "  : " << barang[i].harga
+               << endl;
+
+          cout << endl;
+        }
+      } else {
+        cout << "Data barang masih kosong" << endl;
       }
       break;
     case 3:
       return ulangi = 'n'; // keluar dari program
       break;
     default:
-      cout << "Pilih menu yang sesuai"; // jika user meng-input selain dari 3 menu
+      cout << "Pilih menu yang sesuai"; // jika user meng-input selain dari 3
+                                        // menu
       break;
     }
     cout << "\nKembali ke menu? (y/n) : "; // kembali ke menu
